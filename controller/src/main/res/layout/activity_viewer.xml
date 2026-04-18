@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <com.fonephish.controller.ScreenSurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/typeField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#111111"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#888888"
+        android:hint="@string/hint_type_here"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:padding="12dp" />
+
+    <TextView
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#222222"
+        android:padding="6dp"
+        android:textColor="#AAAAAA"
+        android:textSize="11sp"
+        android:text="@string/status_disconnected" />
+</LinearLayout>

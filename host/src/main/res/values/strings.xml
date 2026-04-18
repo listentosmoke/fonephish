@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fonephish Host</string>
+    <string name="hint_url">https://example.com/page</string>
+    <string name="hint_port">8080</string>
+    <string name="start">Start Sharing</string>
+    <string name="stop">Stop</string>
+    <string name="status_idle">Idle</string>
+    <string name="status_running">Serving on port %1$d</string>
+    <string name="notif_channel">Screen Share</string>
+    <string name="notif_text">Sharing page — tap to return</string>
+</resources>

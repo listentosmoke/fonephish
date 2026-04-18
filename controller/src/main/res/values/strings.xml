@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fonephish Controller</string>
+    <string name="hint_endpoint">wss://yoursubdomain.example.com</string>
+    <string name="connect">Connect</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_connected">Connected</string>
+    <string name="hint_type_here">Tap a field on the page, then type here</string>
+</resources>
