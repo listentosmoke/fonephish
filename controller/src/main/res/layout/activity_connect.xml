@@ -1,28 +1,657 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="@drawable/bg_brawlcup_entry">
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textAppearance="?attr/textAppearanceHeadline5" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/endpointInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/hint_endpoint"
-        android:inputType="textUri" />
+        <View
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="-90dp"
+            android:layout_marginTop="-90dp"
+            android:alpha="0.65"
+            android:background="@drawable/bg_brawlcup_orb_magenta" />
 
-    <Button
-        android:id="@+id/connectBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/connect" />
-</LinearLayout>
+        <View
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="-70dp"
+            android:layout_marginBottom="-30dp"
+            android:alpha="0.55"
+            android:background="@drawable/bg_brawlcup_orb_orange" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/menuBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/barlow_condensed_extrabold"
+                        android:minWidth="0dp"
+                        android:text="@string/nav_menu"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        app:backgroundTint="#25113D"
+                        app:cornerRadius="18dp"
+                        app:strokeColor="#6E4CA7"
+                        app:strokeWidth="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_brawlcup_badge"
+                        android:fontFamily="@font/barlow_condensed_extrabold"
+                        android:letterSpacing="0.14"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:text="@string/brawlcup_badge"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/homePanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_brawlcup_surface"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="220dp"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/brawlcup_logo"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/brawlcup_logo" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:fontFamily="@font/black_han_sans"
+                            android:text="@string/hero_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/hero_subtitle"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_brawlcup_metric"
+                                android:orientation="vertical"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_condensed_extrabold"
+                                    android:text="@string/metric_players"
+                                    android:textColor="@android:color/white"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_regular"
+                                    android:text="@string/metric_players_label"
+                                    android:textColor="#D9C9F0"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="3dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_brawlcup_metric"
+                                android:orientation="vertical"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_condensed_extrabold"
+                                    android:text="@string/metric_prize"
+                                    android:textColor="#FFD856"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_regular"
+                                    android:text="@string/metric_prize_label"
+                                    android:textColor="#D9C9F0"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_brawlcup_metric"
+                                android:orientation="vertical"
+                                android:padding="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_condensed_extrabold"
+                                    android:text="@string/metric_regions"
+                                    android:textColor="#FFAC4D"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/barlow_regular"
+                                    android:text="@string/metric_regions_label"
+                                    android:textColor="#D9C9F0"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/heroLeaderboardBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/hero_leaderboards"
+                            android:textAllCaps="false"
+                            android:textColor="#180B26"
+                            app:backgroundTint="#FFD95A"
+                            app:cornerRadius="22dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/heroAboutBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/hero_about"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            app:backgroundTint="#25113D"
+                            app:cornerRadius="22dp"
+                            app:strokeColor="#6E4CA7"
+                            app:strokeWidth="1dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_brawlcup_surface_warm"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/login_card_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/login_card_copy"
+                            android:textColor="#FFF2DE"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/tosCheckbox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="14dp"
+                            android:fontFamily="@font/barlow_medium"
+                            android:text="@string/tos_acceptance"
+                            android:textColor="#FFF7EC"
+                            app:buttonTint="#FFD856" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/googleLoginBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:paddingVertical="14dp"
+                            android:text="@string/login_google"
+                            android:textAllCaps="false"
+                            android:textColor="#180B26"
+                            android:textSize="18sp"
+                            app:backgroundTint="#FFF6E8"
+                            app:cornerRadius="22dp"
+                            app:icon="@drawable/google_g_logo"
+                            app:iconGravity="textStart"
+                            app:iconPadding="12dp"
+                            app:iconTint="@null"
+                            app:strokeColor="#F5B449"
+                            app:strokeWidth="2dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/altLoginBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:paddingVertical="14dp"
+                            android:text="@string/login_alt"
+                            android:textAllCaps="false"
+                            android:textColor="#FFF0D9"
+                            android:textSize="18sp"
+                            app:backgroundTint="#261338"
+                            app:cornerRadius="22dp"
+                            app:strokeColor="#8E5DB6"
+                            app:strokeWidth="2dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:background="@drawable/bg_brawlcup_host_chip"
+                            android:fontFamily="@font/barlow_condensed_semibold"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="9dp"
+                            android:text="@string/brawlcup_host_hint"
+                            android:textAllCaps="true"
+                            android:textColor="#FFF6EA"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_brawlcup_surface"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/security_note_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/security_note_copy"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/leaderboardsPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_brawlcup_surface"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_brawlcup_badge"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:paddingHorizontal="14dp"
+                            android:paddingVertical="8dp"
+                            android:text="@string/leaderboards_source"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/white"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/black_han_sans"
+                            android:text="@string/leaderboards_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/leaderboards_subtitle"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_brawlcup_surface_warm"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/leaderboards_prize_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="23sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/leaderboards_prize_copy"
+                            android:textColor="#FFF2DE"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_brawlcup_metric"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/barlow_condensed_extrabold" android:text="@string/lb_1_name" android:textColor="@android:color/white" android:textSize="22sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/barlow_medium" android:text="@string/lb_1_meta" android:textColor="#D8CAE9" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="@font/barlow_condensed_semibold" android:text="@string/lb_1_prize" android:textColor="#FFD856" android:textSize="16sp" />
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="14dp" android:background="#4E3575" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/barlow_condensed_extrabold" android:text="@string/lb_2_name" android:textColor="@android:color/white" android:textSize="22sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/barlow_medium" android:text="@string/lb_2_meta" android:textColor="#D8CAE9" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="@font/barlow_condensed_semibold" android:text="@string/lb_2_prize" android:textColor="#FFD856" android:textSize="16sp" />
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="14dp" android:background="#4E3575" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/barlow_condensed_extrabold" android:text="@string/lb_3_name" android:textColor="@android:color/white" android:textSize="22sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/barlow_medium" android:text="@string/lb_3_meta" android:textColor="#D8CAE9" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="@font/barlow_condensed_semibold" android:text="@string/lb_3_prize" android:textColor="#FFD856" android:textSize="16sp" />
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="14dp" android:background="#4E3575" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/barlow_condensed_extrabold" android:text="@string/lb_4_name" android:textColor="@android:color/white" android:textSize="22sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/barlow_medium" android:text="@string/lb_4_meta" android:textColor="#D8CAE9" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="@font/barlow_condensed_semibold" android:text="@string/lb_4_prize" android:textColor="#FFB860" android:textSize="16sp" />
+
+                        <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="14dp" android:background="#4E3575" />
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="@font/barlow_condensed_extrabold" android:text="@string/lb_5_name" android:textColor="@android:color/white" android:textSize="22sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3dp" android:fontFamily="@font/barlow_medium" android:text="@string/lb_5_meta" android:textColor="#D8CAE9" android:textSize="13sp" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:fontFamily="@font/barlow_condensed_semibold" android:text="@string/lb_5_prize" android:textColor="#FFB860" android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aboutPanel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_brawlcup_surface"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/black_han_sans"
+                            android:text="@string/about_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="28sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/about_subtitle"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/bg_brawlcup_metric"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/about_feature_1_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/about_feature_1_copy"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_brawlcup_metric"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/about_feature_2_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/about_feature_2_copy"
+                            android:textColor="#E9DDFF"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_brawlcup_surface_warm"
+                        android:orientation="vertical"
+                        android:padding="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/barlow_condensed_extrabold"
+                            android:text="@string/about_feature_3_title"
+                            android:textColor="@android:color/white"
+                            android:textSize="21sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/barlow_regular"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/about_feature_3_copy"
+                            android:textColor="#FFF2DE"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:fontFamily="@font/barlow_medium"
+                        android:gravity="center"
+                        android:text="@string/about_footer"
+                        android:textColor="#CDBDDE"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/bg_brawlcup_sidebar"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/brawlcup_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/brawlcup_logo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/barlow_condensed_extrabold"
+            android:text="@string/nav_sections"
+            android:textAllCaps="true"
+            android:textColor="#CDBDDE"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/homeNavBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_brawlcup_drawer_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/barlow_condensed_extrabold"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="16dp"
+            android:text="@string/nav_home"
+            android:textColor="#F6EFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/leaderboardNavBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_brawlcup_drawer_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/barlow_condensed_extrabold"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="16dp"
+            android:text="@string/nav_leaderboards"
+            android:textColor="#F6EFFF"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/aboutNavBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_brawlcup_drawer_item"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/barlow_condensed_extrabold"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="16dp"
+            android:text="@string/nav_about"
+            android:textColor="#F6EFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

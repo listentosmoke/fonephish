@@ -70,8 +70,10 @@ class ScreenCaptureService : Service() {
         }
 
         configureMetrics()
+        Log.e(TAG, "starting capture ${width}x${height} density=$density port=$port")
         startCapture()
         startServer(port)
+        Log.e(TAG, "capture + server started")
 
         return START_STICKY
     }
@@ -87,9 +89,9 @@ class ScreenCaptureService : Service() {
         val metrics = DisplayMetrics()
         @Suppress("DEPRECATION")
         wm.defaultDisplay.getRealMetrics(metrics)
-        // Downscale long side to ~720 to keep bandwidth reasonable over Cloudflare.
-        val longSide = 720
-        val scale = longSide.toFloat() / maxOf(metrics.widthPixels, metrics.heightPixels)
+        val longestEdge = maxOf(metrics.widthPixels, metrics.heightPixels)
+        val targetLongSide = minOf(longestEdge, 1080)
+        val scale = targetLongSide.toFloat() / longestEdge.toFloat()
         width = (metrics.widthPixels * scale).toInt().coerceAtLeast(2)
         height = (metrics.heightPixels * scale).toInt().coerceAtLeast(2)
         density = metrics.densityDpi
@@ -113,9 +115,14 @@ class ScreenCaptureService : Service() {
         startCapture()
     }
 
+    private var imgCount = 0
     private fun onImage(reader: ImageReader) {
-        val image = try { reader.acquireLatestImage() } catch (_: Throwable) { null } ?: return
+        val image = try { reader.acquireLatestImage() } catch (t: Throwable) {
+            Log.e(TAG, "acquireLatestImage threw", t); null
+        } ?: return
         try {
+            imgCount++
+            if (imgCount % 30 == 1) Log.e(TAG, "onImage #$imgCount ${image.width}x${image.height}")
             val now = System.nanoTime()
             if (now - lastSendNs < frameIntervalNs) return
             lastSendNs = now
@@ -135,7 +142,7 @@ class ScreenCaptureService : Service() {
             } else bmp
 
             val baos = ByteArrayOutputStream()
-            cropped.compress(Bitmap.CompressFormat.JPEG, 55, baos)
+            cropped.compress(Bitmap.CompressFormat.JPEG, 80, baos)
             if (cropped !== bmp) cropped.recycle()
             bmp.recycle()
 

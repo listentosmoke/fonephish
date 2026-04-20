@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Fonephish.Host" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
-    <style name="Theme.Fonephish.Host.Kiosk" parent="Theme.MaterialComponents.DayNight.NoActionBar.Fullscreen">
+    <style name="Theme.Fonephish.Host.Kiosk" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:statusBarColor">#000000</item>

@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:orientation="vertical">
+    android:background="#000000">
 
     <com.fonephish.controller.ScreenSurfaceView
         android:id="@+id/surface"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent" />
 
-    <EditText
-        android:id="@+id/typeField"
+    <LinearLayout
+        android:id="@+id/connectionStatusCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#111111"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#888888"
-        android:hint="@string/hint_type_here"
-        android:imeOptions="actionDone"
-        android:inputType="text"
-        android:padding="12dp" />
+        android:layout_gravity="top|center_horizontal"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_connection_status"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="18dp">
 
-    <TextView
-        android:id="@+id/statusBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#222222"
-        android:padding="6dp"
-        android:textColor="#AAAAAA"
-        android:textSize="11sp"
-        android:text="@string/status_disconnected" />
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/barlow_condensed_extrabold"
+            android:letterSpacing="0.08"
+            android:text="@string/brawlcup_title"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/connectionStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/barlow_regular"
+            android:text="@string/status_connecting"
+            android:textColor="#DCE6F8"
+            android:textSize="15sp" />
+    </LinearLayout>
+</FrameLayout>

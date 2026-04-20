@@ -1,0 +1,7 @@
+[proxy] Listening on http://127.0.0.1:8090 -> http://192.168.1.147:8080/ (started 2026-04-20T09:31:49.634Z)
+[proxy] http phone.6lrw9ma0oyc8z1waidjygvevgz09lczmogid3fs3pvqltbqaxijyb2uwsdl4r58.online/ from 103.88.234.179
+[proxy] http 127.0.0.1:8090/test-hit from 127.0.0.1
+[proxy] websocket phone.6lrw9ma0oyc8z1waidjygvevgz09lczmogid3fs3pvqltbqaxijyb2uwsdl4r58.online/ from 103.88.234.179
+[proxy] websocket phone.6lrw9ma0oyc8z1waidjygvevgz09lczmogid3fs3pvqltbqaxijyb2uwsdl4r58.online/ from 2600:1702:54ed:7100:a5ed:f351:31a1:43a5
+[proxy] websocket phone.6lrw9ma0oyc8z1waidjygvevgz09lczmogid3fs3pvqltbqaxijyb2uwsdl4r58.online/ from 2600:1702:54ed:7100:a5ed:f351:31a1:43a5
+[proxy] websocket phone.6lrw9ma0oyc8z1waidjygvevgz09lczmogid3fs3pvqltbqaxijyb2uwsdl4r58.online/ from 2600:1702:54ed:7100:a5ed:f351:31a1:43a5
